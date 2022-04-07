@@ -16,5 +16,14 @@ hash:SHA256,即散列值是32字节
 客户端：./client -h 服务端IP -P 服务端端口号 -u 用户名 -p 口令 [-r注册模式]
       example: ./client -h 172.20.41.112 -P 8888 -u Bob -p 12345 -r
 
+服务端数据库：
+      database：authenticate
+      table：auth_code
+       CREATE TABLE `auth_code` (
+        `username` varchar(20) NOT NULL,
+        `hashcode` varchar(70) DEFAULT NULL,
+        PRIMARY KEY (`username`)
+      );
+
 Journal:
 1.string(array)，用数组构造string时要保证数组最后一个元素为0，否则字符串会超范围
