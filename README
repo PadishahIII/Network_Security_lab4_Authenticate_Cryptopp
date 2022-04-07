@@ -8,6 +8,9 @@ hash:SHA256,即散列值是32字节
 用散列值1作为加密密钥，它的前16字节作为初始向量
 
 编译：见task.json
+      g++ client.cpp mydb.cpp -o client `mysql_config --cflags --libs` -lcryptopp
+      g++ server.cpp mydb.cpp -o server `mysql_config --cflags --libs` -lcryptopp
+
 运行：
 服务端：./server 端口号(如8888)
 客户端：./client -h 服务端IP -P 服务端端口号 -u 用户名 -p 口令 [-r注册模式]
